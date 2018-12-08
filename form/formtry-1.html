@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+	<meta charset="UTF-8">
+	<title>图片预览小demo-demo1</title>
+	<link rel="stylesheet" href="./css/form.css">
+</head>
+<body>
+	<div class="">
+		<h3 class="">选择图片</h3>
+		<form action="./form.php" method='post' enctype="multipart/form-data" id='formtry'>
+			<img src="image/upload.png" alt="" id='imgupload' onclick='createFileInput()'>
+			<button type='submit'>提交</button>
+		</form>
+	</div>
+
+	<!-- 第一种实现办法 -->
+	<script>
+		//
+		//两种图片预览办法
+		//
+		var imgsrc;
+		function createFileInput(){
+			var fileInput = this.fileInput;
+			if(!fileInput){
+				fileInput=document.createElement("input");
+				fileInput.name = "myfile";
+				fileInput.type="file";
+				// fileInput.multiple = true; 多图上传
+				fileInput.style.display="none";
+				document.getElementById('formtry').appendChild(fileInput);
+				this.fileInput = fileInput;
+			}
+			fileInput.click();
+			fileInput.onchange  = this.onchangeFileInput.bind(this);
+		}
+
+		function onchangeFileInput(){
+			//第一种办法
+			var reader = new FileReader(),
+				fileInput = this.fileInput;
+			reader.readAsDataURL(fileInput.files[0]);
+			reader.onload=function(){
+				document.querySelector('#imgupload').src=reader.result
+			}
+		}
+	</script>
+</body>
+</html>

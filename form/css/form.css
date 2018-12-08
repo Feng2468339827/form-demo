@@ -1,0 +1,7 @@
+#imgupload{
+	max-width: 300px;
+	cursor: pointer;
+	padding:4px;
+	border:1px solid #ccc;
+	border-radius:5px;
+}
