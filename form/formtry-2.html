@@ -7,8 +7,8 @@
 </head>
 <body>
 	<div class="">
+		<h3 class="">选择图片</h3>
 		<form action="./form.php" method='post' enctype="multipart/form-data" id='formtry'>
-			<label for="select">选择图片</label>
 			<img src="image/upload.png" alt="" id='imgupload' onclick='createFileInput()'>
 			<button type='submit'>提交</button>
 		</form>
@@ -41,10 +41,8 @@
 			
 			// 第二种办法
 	        var fileInput = this.fileInput;
-	        console.log(fileInput)
         	var file = fileInput.files[0];
-	        console.log(file)
-	        var img = window.URL.createObjectURL(file);
+	        var img = window.URL.createObjectURL(file); //获得blob对象
 	        console.log(img)
 	        var filename = file.name;
 	        document.querySelector('#imgupload').src=img

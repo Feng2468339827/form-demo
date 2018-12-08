@@ -41,7 +41,8 @@
 				fileInput = this.fileInput;
 			reader.readAsDataURL(fileInput.files[0]);
 			reader.onload=function(){
-				document.querySelector('#imgupload').src=reader.result
+				console.log(reader)
+				document.querySelector('#imgupload').src=reader.result //base64图片编码
 			}
 		}
 	</script>

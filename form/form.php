@@ -1,6 +1,5 @@
 <?php
-
-header('Content-Type: text/plain; charset=utf-8');
+	header('Content-Type: text/plain; charset=utf-8');
     var_dump($_FILES);
 	$imgname = $_FILES['myfile']['name'];
     $tmp = $_FILES['myfile']['tmp_name'];
